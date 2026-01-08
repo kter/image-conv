@@ -57,7 +57,15 @@ class ImageProcessorService {
       img.Image? image = img.decodeImage(bytes);
       if (image == null) return null;
 
+      // EXIF orientation handling
+      // bakeOrientation rotates the image visually to match EXIF and resets the orientation tag.
+      // This ensures width/height are the visual dimensions.
+      image = img.bakeOrientation(image);
+
       // Apply resize if specified
+      
+      bool resized = false;
+
       if (scalePercent != null && scalePercent != 100) {
         final newWidth = (image.width * scalePercent / 100).round();
         final newHeight = (image.height * scalePercent / 100).round();
@@ -67,6 +75,7 @@ class ImageProcessorService {
           height: newHeight,
           interpolation: img.Interpolation.linear,
         );
+        resized = true;
       } else if (targetWidth != null || targetHeight != null) {
         int? resizeWidth = targetWidth;
         int? resizeHeight = targetHeight;
@@ -93,6 +102,15 @@ class ImageProcessorService {
           height: resizeHeight,
           interpolation: img.Interpolation.linear,
         );
+        resized = true;
+      }
+
+      if (resized) {
+        // Sync EXIF dimensions with new image dimensions.
+        // Since ExifData doesn't have direct setters for imageWidth/imageHeight in this version,
+        // and keeping old EXIF with wrong dimensions causes issues, we reset it.
+        // This forces viewers to use the actual JPEG dimensions.
+        image.exif = img.ExifData();
       }
 
       // Encode to target format
