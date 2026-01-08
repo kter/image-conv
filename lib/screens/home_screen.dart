@@ -135,9 +135,19 @@ class _HomeScreenState extends State<HomeScreen> {
               onScaleChanged: (scale) {
                 setState(() {
                   _scalePercent = scale;
-                  _targetWidth = null;
-                  _targetHeight = null;
                   _selectedPresetId = null;
+                  // パーセンテージから幅と高さを計算
+                  if (scale != null && _originalImageInfo != null) {
+                    final originalWidth = _originalImageInfo!.width;
+                    final originalHeight = _originalImageInfo!.height;
+                    if (originalWidth != null && originalHeight != null) {
+                      _targetWidth = (originalWidth * scale / 100).round();
+                      _targetHeight = (originalHeight * scale / 100).round();
+                    }
+                  } else {
+                    _targetWidth = null;
+                    _targetHeight = null;
+                  }
                 });
               },
               onAspectRatioChanged: (value) {
