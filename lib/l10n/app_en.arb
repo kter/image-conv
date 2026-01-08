@@ -1,0 +1,72 @@
+{
+  "@@locale": "en",
+  "appTitle": "Image Converter",
+  "selectImage": "Select Image",
+  "gallery": "Gallery",
+  "camera": "Camera",
+  "fileManager": "Files",
+  "outputFormat": "Output Format",
+  "quality": "Quality",
+  "qualityPercent": "{value}%",
+  "@qualityPercent": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "resize": "Resize",
+  "resizePresets": "Presets",
+  "percentageScale": "Percentage Scale",
+  "customSize": "Custom Size",
+  "width": "Width",
+  "height": "Height",
+  "maintainAspectRatio": "Maintain aspect ratio",
+  "apply": "Apply",
+  "convert": "Convert",
+  "save": "Save to Gallery",
+  "share": "Share",
+  "originalImage": "Original",
+  "convertedImage": "Converted",
+  "dimensions": "{width} × {height}",
+  "@dimensions": {
+    "placeholders": {
+      "width": {
+        "type": "int"
+      },
+      "height": {
+        "type": "int"
+      }
+    }
+  },
+  "fileSize": "{size}",
+  "@fileSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "processing": "Processing...",
+  "converting": "Converting image...",
+  "saving": "Saving to gallery...",
+  "successConverted": "Image converted successfully!",
+  "successSaved": "Image saved to gallery!",
+  "successShared": "Ready to share",
+  "errorNoImage": "Please select an image first",
+  "errorConversion": "Failed to convert image",
+  "errorSave": "Failed to save image",
+  "errorPickImage": "Failed to pick image",
+  "errorCameraPermission": "Camera permission is required",
+  "errorStoragePermission": "Storage permission is required",
+  "hd": "HD",
+  "fullHd": "Full HD",
+  "uhd4k": "4K UHD",
+  "instagram": "Instagram",
+  "facebook": "Facebook",
+  "twitter": "Twitter",
+  "youtube": "YouTube",
+  "webSmall": "Web Small",
+  "noImageSelected": "No image selected",
+  "tapToSelectImage": "Tap a button above to select an image"
+}
