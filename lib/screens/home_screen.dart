@@ -136,18 +136,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
                   _scalePercent = scale;
                   _selectedPresetId = null;
-                  // パーセンテージから幅と高さを計算
-                  if (scale != null && _originalImageInfo != null) {
-                    final originalWidth = _originalImageInfo!.width;
-                    final originalHeight = _originalImageInfo!.height;
-                    if (originalWidth != null && originalHeight != null) {
-                      _targetWidth = (originalWidth * scale / 100).round();
-                      _targetHeight = (originalHeight * scale / 100).round();
-                    }
-                  } else {
-                    _targetWidth = null;
-                    _targetHeight = null;
-                  }
+                  // scalePercentを使用する場合はtargetWidth/targetHeightをnullにする
+                  // image_processor_serviceでscalePercentの処理が正しく使われるようにする
+                  _targetWidth = null;
+                  _targetHeight = null;
                 });
               },
               onAspectRatioChanged: (value) {
