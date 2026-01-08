@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー - Image Converter</title>
+    <style>
+        :root {
+            --primary-color: #6750A4;
+            --text-color: #1C1B1F;
+            --bg-color: #FFFBFE;
+            --card-bg: #F7F2FA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 2rem 1rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .app-name {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .update-date {
+            text-align: center;
+            color: #666;
+            font-size: 0.875rem;
+            margin-top: 2rem;
+        }
+        
+        .lang-switch {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .lang-switch button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .lang-switch button:hover {
+            opacity: 0.9;
+        }
+        
+        .lang-switch button.active {
+            background: #4A3880;
+        }
+        
+        .content {
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="title">プライバシーポリシー</h1>
+            <p class="app-name">Image Converter</p>
+        </header>
+        
+        <div class="lang-switch">
+            <button onclick="switchLang('ja')" id="btn-ja" class="active">日本語</button>
+            <button onclick="switchLang('en')" id="btn-en">English</button>
+        </div>
+        
+        <!-- 日本語 -->
+        <div id="content-ja" class="content active">
+            <div class="card">
+                <h2>はじめに</h2>
+                <p>Image Converter（以下「本アプリ」）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めています。本プライバシーポリシーは、本アプリにおける情報の取り扱いについて説明します。</p>
+            </div>
+            
+            <div class="card">
+                <h2>収集する情報</h2>
+                <p>本アプリは、以下の情報を収集・使用しません：</p>
+                <ul>
+                    <li>個人を特定できる情報（氏名、メールアドレス、電話番号など）</li>
+                    <li>位置情報</li>
+                    <li>デバイス識別子</li>
+                    <li>使用状況データやアナリティクス情報</li>
+                </ul>
+                <p>本アプリは完全にオフラインで動作し、画像の変換処理はすべてお使いのデバイス上で行われます。</p>
+            </div>
+            
+            <div class="card">
+                <h2>画像データの取り扱い</h2>
+                <p>本アプリで選択・変換された画像は：</p>
+                <ul>
+                    <li>お使いのデバイス上でのみ処理されます</li>
+                    <li>外部サーバーに送信されることはありません</li>
+                    <li>変換後の画像はお使いのデバイスに保存されます</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>第三者への情報提供</h2>
+                <p>本アプリは個人情報を収集しないため、第三者への情報提供は行いません。</p>
+            </div>
+            
+            <div class="card">
+                <h2>お問い合わせ</h2>
+                <p>本プライバシーポリシーに関するご質問がございましたら、アプリのストアページからお問い合わせください。</p>
+            </div>
+        </div>
+        
+        <!-- English -->
+        <div id="content-en" class="content">
+            <div class="card">
+                <h2>Introduction</h2>
+                <p>Image Converter (hereinafter referred to as "this app") respects user privacy and is committed to protecting personal information. This privacy policy explains how information is handled in this app.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Information We Collect</h2>
+                <p>This app does NOT collect or use the following information:</p>
+                <ul>
+                    <li>Personally identifiable information (name, email address, phone number, etc.)</li>
+                    <li>Location data</li>
+                    <li>Device identifiers</li>
+                    <li>Usage data or analytics</li>
+                </ul>
+                <p>This app works completely offline, and all image conversion processing is performed on your device.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Image Data Handling</h2>
+                <p>Images selected and converted in this app:</p>
+                <ul>
+                    <li>Are processed only on your device</li>
+                    <li>Are never sent to external servers</li>
+                    <li>Converted images are saved to your device</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Third-Party Disclosure</h2>
+                <p>Since this app does not collect personal information, no information is shared with third parties.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about this privacy policy, please contact us through the app's store page.</p>
+            </div>
+        </div>
+        
+        <p class="update-date" id="update-date">最終更新日: 2026年1月8日</p>
+    </div>
+    
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-switch button').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById('content-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+            
+            if (lang === 'ja') {
+                document.getElementById('title').textContent = 'プライバシーポリシー';
+                document.getElementById('update-date').textContent = '最終更新日: 2026年1月8日';
+            } else {
+                document.getElementById('title').textContent = 'Privacy Policy';
+                document.getElementById('update-date').textContent = 'Last updated: January 8, 2026';
+            }
+        }
+    </script>
+</body>
+</html>
