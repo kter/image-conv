@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Pre-commit hook for running Flutter tests before each commit
+# If tests fail, the commit will be aborted.
+
+echo "Running Flutter tests..."
+
+# Run widget tests (excluding golden tests for speed)
+flutter test test/widgets/ --reporter compact
+
+# Check if tests passed
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "❌ Tests failed. Commit aborted."
+    echo "Fix the failing tests and try again."
+    exit 1
+fi
+
+echo "✅ All tests passed. Proceeding with commit."
+exit 0
