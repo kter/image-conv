@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ConvertedImageInfo? _convertedImageInfo;
 
   ImageOutputFormat _selectedFormat = ImageOutputFormat.jpeg;
-  int _quality = 80;
+  int _quality = 95;
   String? _selectedPresetId;
   int? _targetWidth;
   int? _targetHeight;
@@ -136,10 +136,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
                   _scalePercent = scale;
                   _selectedPresetId = null;
-                  // scalePercentを使用する場合はtargetWidth/targetHeightをnullにする
-                  // image_processor_serviceでscalePercentの処理が正しく使われるようにする
-                  _targetWidth = null;
-                  _targetHeight = null;
+                  // Calculate and update Width/Height based on the scale percent
+                  if (scale != null && _originalImageInfo != null) {
+                    _targetWidth = ((_originalImageInfo!.width * scale) / 100).round();
+                    _targetHeight = ((_originalImageInfo!.height * scale) / 100).round();
+                  }
                 });
               },
               onAspectRatioChanged: (value) {
@@ -329,8 +330,9 @@ class _HomeScreenState extends State<HomeScreen> {
           _convertedImage = null;
           _convertedImageInfo = null;
           _selectedPresetId = null;
-          _targetWidth = null;
-          _targetHeight = null;
+          // Initialize with original image dimensions
+          _targetWidth = info?.width;
+          _targetHeight = info?.height;
           _scalePercent = null;
         });
       }
